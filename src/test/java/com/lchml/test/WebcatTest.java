@@ -12,7 +12,6 @@ public class WebcatTest {
 
     public static void main(String[] args) throws WebcatStartException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("webtest.xml");
-        // console
         HttpServer httpServer = context.getBean(WebcatHttpServer.class);
         httpServer.setPort(8080);
         httpServer.start();
