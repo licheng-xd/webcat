@@ -9,4 +9,10 @@
 
     <context:component-scan base-package="com.lchml.webcat"/>
     <context:component-scan base-package="com.lchml.test"/>
+    <bean class="com.lchml.webcat.config.WebcatConf" id="webcatConf">
+        <property name="logEnable" value="true"/>
+        <property name="defaultProduce" value="text/plain"/>
+        <property name="logResponse" value="false"/>
+    </bean>
+
 </beans>

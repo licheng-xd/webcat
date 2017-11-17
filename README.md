@@ -19,6 +19,7 @@ public static void main(String[] args) throws WebcatStartException {
 ```xml
 <context:component-scan base-package="com.lchml.test"/>
 ```
+
 ```Java
 @HttpController(path = "/test")
 public class TestController {
@@ -40,4 +41,14 @@ public class TestController {
 }
 ```
 
+默认会打开所有http请求的日志,logEnbale设置为false可以关闭日志
+默认日志中不会输入response内容,logResponse设置为true可以打开
+默认返回content-type为application/json;charset=utf-8,通过defaultProduce参数可以修改
+```xml
+<bean class="com.lchml.webcat.config.WebcatConf" id="webcatConf">
+    <property name="logEnable" value="true"/>
+    <property name="logResponse" value="true"/>
+    <property name="defaultProduce" value="text/plain"/>
+</bean>
+```
 

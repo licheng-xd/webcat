@@ -134,11 +134,15 @@ public class HttpRequestInvoker {
             }
             // 设置response content
             if (result != null && !void.class.isAssignableFrom(result.getClass()) && !Void.class.isAssignableFrom(result.getClass())) {
+                if (webcatConf.isLogResponse()) {
+                    WebcatLog.setResponse(result);
+                }
                 if (String.class.isAssignableFrom(result.getClass())) {
                     ResponseUtil.content(response, (String) result);
                 } else {
                     ResponseUtil.content(response, JsonUtil.toJson(result));
                 }
+
             }
         } catch (Exception e) {
             ResponseUtil.status(response, HttpResponseStatus.INTERNAL_SERVER_ERROR);

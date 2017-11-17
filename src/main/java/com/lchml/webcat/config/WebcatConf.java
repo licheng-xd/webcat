@@ -12,6 +12,8 @@ public class WebcatConf {
 
     private String defaultProduce = "application/json;charset=utf-8";
 
+    private boolean logResponse = false;
+
     public boolean isLogEnable() {
         return logEnable;
     }
@@ -26,5 +28,13 @@ public class WebcatConf {
 
     public void setDefaultProduce(String defaultProduce) {
         this.defaultProduce = defaultProduce;
+    }
+
+    public boolean isLogResponse() {
+        return logResponse;
+    }
+
+    public void setLogResponse(boolean logResponse) {
+        this.logResponse = logResponse;
     }
 }

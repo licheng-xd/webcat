@@ -56,6 +56,6 @@ public class ResponseUtil {
     }
 
     public static void contentType(FullHttpResponse response, String contentType) {
-        addHeader(response, HttpHeaderNames.CONTENT_TYPE, "application/json;charset=utf-8");
+        addHeader(response, HttpHeaderNames.CONTENT_TYPE, contentType);
     }
 }

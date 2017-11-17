@@ -73,7 +73,7 @@ public class RequestUtil {
             return true;
         }
         for (String c : consumers) {
-            if (target.toLowerCase().contains(c.toLowerCase())) {
+            if (target != null && target.toLowerCase().contains(c.toLowerCase())) {
                 return true;
             }
         }

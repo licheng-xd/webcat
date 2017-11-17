@@ -38,6 +38,18 @@ public class WebcatLog {
         get().setProps(prop);
     }
 
+    public static void setResponse(Object response) {
+        String resp = null;
+        if (response == null) {
+            return;
+        } else if (String.class.isAssignableFrom(response.getClass())) {
+            resp = response.toString();
+        } else {
+            resp = JsonUtil.toJson(response);
+        }
+        get().setResponse(resp);
+    }
+
     public static void setPath(String path) {
         get().setPath(path);
     }
@@ -77,6 +89,8 @@ public class WebcatLog {
 
         private long spendtime;
 
+        private String response;
+
         private Map<String, Object> props = new HashMap<String, Object>();
 
         private LogBean() {
@@ -91,60 +105,36 @@ public class WebcatLog {
             props.put(key, value);
         }
 
-        public Map<String, Object> getProps() {
-            return props;
-        }
-
         public void setProps(Map<String, Object> props) {
             this.props = props;
-        }
-
-        public String getPath() {
-            return path;
         }
 
         public void setPath(String path) {
             this.path = path;
         }
 
-        public String getIp() {
-            return ip;
-        }
-
         public void setIp(String ip) {
             this.ip = ip;
-        }
-
-        public String getMethod() {
-            return method;
         }
 
         public void setMethod(String method) {
             this.method = method;
         }
 
-        public long getStarttime() {
-            return starttime;
-        }
-
         public void setStarttime(long starttime) {
             this.starttime = starttime;
-        }
-
-        public int getRetcode() {
-            return retcode;
         }
 
         public void setRetcode(int retcode) {
             this.retcode = retcode;
         }
 
-        public long getSpendtime() {
-            return spendtime;
-        }
-
         public void setSpendtime(long spendtime) {
             this.spendtime = spendtime;
+        }
+
+        public void setResponse(String response) {
+            this.response = response;
         }
 
         @Override
