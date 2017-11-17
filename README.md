@@ -5,7 +5,7 @@ webcat is a faster and simpler http server by netty
 
 在spring的配置中,加上对webcat的package扫描:
 ```xml
-    <context:component-scan base-package="com.lchml.webcat"/>
+<context:component-scan base-package="com.lchml.webcat"/>
 ```
 设置端口并启动:
 ```Java
@@ -16,6 +16,9 @@ public static void main(String[] args) throws WebcatStartException {
 }
 ```
 添加自己的controller:
+```xml
+<context:component-scan base-package="com.lchml.test"/>
+```
 ```Java
 @HttpController(path = "/test")
 public class TestController {
