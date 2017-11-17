@@ -1,5 +1,5 @@
-# webcat
-webcat is a faster and simpler http server by netty
+# Webcat
+Webcat is a faster and simpler http server by netty
 
 ## How to use
 
@@ -40,6 +40,7 @@ public class TestController {
     }
 }
 ```
+## Config
 
 默认会打开所有http请求的日志,logEnbale设置为false可以关闭日志
 默认日志中不会输入response内容,logResponse设置为true可以打开
