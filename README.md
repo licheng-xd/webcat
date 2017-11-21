@@ -1,5 +1,5 @@
 # Webcat
-Webcat is a faster and simpler http server by netty
+Webcat is a faster and simpler http server by netty.
 
 ## 快速启动
 
