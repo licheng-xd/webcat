@@ -24,9 +24,6 @@ gradle/
 gradlew
 gradlew.bat
 
-# Sentry Files
-!sentry-javaagent-premain-2.0.0.jar
-
 # eclipse
 .setting/
 .classpath
@@ -45,5 +42,3 @@ classes/
 # LOG Files
 log/
 
-.settings/
-test_build/
