@@ -1,5 +1,6 @@
 package com.lchml.webcat.http;
 
+import com.lchml.webcat.common.WebcatServer;
 import com.lchml.webcat.ex.WebcatStartException;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -20,7 +21,7 @@ import java.net.InetSocketAddress;
  * Created by lc on 11/11/17.
  */
 @Component
-public class WebcatHttpServer implements HttpServer {
+public class WebcatHttpServer implements WebcatServer {
     private static final Logger logger = LoggerFactory.getLogger(
         WebcatHttpServer.class);
 

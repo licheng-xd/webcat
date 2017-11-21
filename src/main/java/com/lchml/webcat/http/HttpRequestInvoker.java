@@ -5,7 +5,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.lchml.webcat.annotation.*;
-import com.lchml.webcat.config.WebcatConf;
+import com.lchml.webcat.config.WebcatHttpConf;
 import com.lchml.webcat.ex.WebcatInitException;
 import com.lchml.webcat.util.*;
 import io.netty.handler.codec.http.*;
@@ -35,7 +35,7 @@ public class HttpRequestInvoker {
     private ConfigurableListableBeanFactory beanFactory;
 
     @Autowired
-    private WebcatConf webcatConf;
+    private WebcatHttpConf webcatHttpConf;
 
     private Map<String, Object> controllerMap; // controllerName - bean
     private Map<String, Method> methodMap; // path - method
@@ -125,7 +125,7 @@ public class HttpRequestInvoker {
                 ResponseUtil.contentType(response, Joiner.on(",").join(mapping.produces()));
             } else {
                 // default content-type
-                ResponseUtil.contentType(response, webcatConf.getDefaultProduce());
+                ResponseUtil.contentType(response, webcatHttpConf.getDefaultProduce());
             }
 
             if (response.status() == null || response.status() == HttpResponseStatus.CONTINUE) {
@@ -134,7 +134,7 @@ public class HttpRequestInvoker {
             }
             // 设置response content
             if (result != null && !void.class.isAssignableFrom(result.getClass()) && !Void.class.isAssignableFrom(result.getClass())) {
-                if (webcatConf.isLogResponse()) {
+                if (webcatHttpConf.isLogResponse()) {
                     WebcatLog.setResponse(result);
                 }
                 if (String.class.isAssignableFrom(result.getClass())) {

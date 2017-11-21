@@ -42,7 +42,9 @@ public class MethodUtil {
                         paramIndexMap.put(i, req.name());
                     }
                 } else if (ReqBody.class.isInstance(anno)) {
-                    bodyAnno.put(i, (ReqBody) anno);
+                    if (bodyAnno != null) {
+                        bodyAnno.put(i, (ReqBody) anno);
+                    }
                 }
             }
         }

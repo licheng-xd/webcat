@@ -1,6 +1,6 @@
 package com.lchml.webcat.http;
 
-import com.lchml.webcat.config.WebcatConf;
+import com.lchml.webcat.config.WebcatHttpConf;
 import com.lchml.webcat.ex.WebcatException;
 import com.lchml.webcat.util.NettyHttpUtil;
 import com.lchml.webcat.util.RequestUtil;
@@ -33,7 +33,7 @@ public class HttpRequestDispatcher extends ChannelInboundHandlerAdapter {
     private HttpRequestInvoker httpRequestInvoker;
 
     @Autowired
-    private WebcatConf webcatConf;
+    private WebcatHttpConf webcatHttpConf;
 
 
     @Override
@@ -75,7 +75,7 @@ public class HttpRequestDispatcher extends ChannelInboundHandlerAdapter {
             NettyHttpUtil.succResponse(ctx, request, response);
             WebcatLog.setRetcode(response.status().code());
             WebcatLog.setSpendtime(System.currentTimeMillis() - starttime);
-            if (webcatConf.isLogEnable()) {
+            if (webcatHttpConf.isLogEnable()) {
                 WebcatLog.info();
             }
         }
