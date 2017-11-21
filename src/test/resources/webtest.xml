@@ -15,4 +15,10 @@
         <property name="logResponse" value="true"/>
     </bean>
 
+    <bean class="com.lchml.webcat.config.WebcatWsConf" id="webcatWsConf">
+        <property name="heartbeat" value="15"/>
+        <property name="logEnable" value="true"/>
+        <property name="logResponse" value="true"/>
+        <property name="useProxy" value="true"/>
+    </bean>
 </beans>
