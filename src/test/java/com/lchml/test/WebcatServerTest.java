@@ -24,6 +24,7 @@ public class WebcatServerTest {
         WebcatWsServer wsServer = context.getBean(WebcatWsServer.class);
         wsServer.setChannelConnectListener(new ChannelConnectListener() {
             @Override public void connect(ChannelInfo channelInfo) {
+                channelInfo.addAttr("connectTime", System.currentTimeMillis());
                 System.out.println(channelInfo.getClientIp() + " connect");
             }
         });
